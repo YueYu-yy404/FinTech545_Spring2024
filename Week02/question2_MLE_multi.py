@@ -45,6 +45,14 @@ mean_estimated_x2 = np.mean(estimated_x2)
 std_estimated_x2 = np.std(estimated_x2)
 confidence_interval = norm.interval(0.95, loc=mean_estimated_x2, scale=std_estimated_x2)
 
+# Plot histogram of estimated x2 values
+plt.hist(estimated_x2, bins=30, density=True, alpha=0.7, color='blue', label='Histogram of Estimated x2')
+plt.title('Histogram of Estimated x2 Values')
+plt.xlabel('x2 Values')
+plt.ylabel('Frequency')
+plt.legend()
+plt.show()
+
 # Plot Q-Q plot with the expected value and 95% confidence interval
 probplot(estimated_x2, dist='norm', plot=plt)
 plt.axhline(mean_estimated_x2, color='red', linestyle='dashed', label='Expected Value')
